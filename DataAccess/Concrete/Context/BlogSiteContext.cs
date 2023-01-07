@@ -23,12 +23,14 @@ namespace DataAccess.Concrete.Context
                 .WithMany(x => x.MessageSender)
                 .HasForeignKey(x => x.SenderID)
                 .OnDelete(DeleteBehavior.ClientSetNull);
-          
+
             modelBuilder.Entity<Message>()
                 .HasOne(x => x.MessageReciver)
                 .WithMany(x => x.MessageReciver)
                 .HasForeignKey(x => x.ReciverID)
                 .OnDelete(DeleteBehavior.ClientSetNull);
+            modelBuilder.Entity<Blog>().ToTable(tb => tb.HasTrigger("AddBlogInRatingTable"));
+            modelBuilder.Entity<Comment>().ToTable(tb => tb.HasTrigger("AddScoreInComment"));
         }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Blog> Blogs { get; set; }
