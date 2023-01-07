@@ -1,0 +1,36 @@
+﻿@model Entities.Concrete.Blog
+
+@{
+    ViewData["Title"] = "UpdateBlog";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>Blog Düzenleme Sayfası</h1>
+@using (Html.BeginForm("UpdateBlog", "Blog", FormMethod.Post))
+{
+    @Html.Label("Blog ID")
+    @Html.TextBoxFor(x => x.BlogID, new {@class = "form-control"})
+    @Html.ValidationMessageFor(x => x.BlogID)
+    <br />
+    @Html.Label("Blog Başlığı")
+    @Html.TextBoxFor(x => x.BlogTitle, new {@class = "form-control"})
+    @Html.ValidationMessageFor(x => x.BlogTitle)
+    <br />
+    @Html.Label("Blog Küçük Görseli")
+    @Html.TextBoxFor(x => x.BlogThumbnailImage, new {@class = "form-control"})
+    @Html.ValidationMessageFor(x => x.BlogThumbnailImage)
+    <br />
+    @Html.Label("Blog Görseli")
+    @Html.TextBoxFor(x => x.BlogImage, new {@class = "form-control"})
+    @Html.ValidationMessageFor(x => x.BlogImage)
+    <br />
+    @Html.Label("Kategori")
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.categoryValues, new { @class="form-control"})
+    @Html.ValidationMessageFor(x => x.CategoryID)
+    <br />
+    @Html.Label("Blog Yazısı")
+    @Html.TextAreaFor(x => x.BlogContent, 15, 3, new {@class = "form-control"})
+    @Html.ValidationMessageFor(x => x.BlogContent)
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+}

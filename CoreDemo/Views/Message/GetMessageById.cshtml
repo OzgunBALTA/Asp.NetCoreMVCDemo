@@ -1,0 +1,18 @@
+﻿@model Core.Entities.Concrete.Message
+@{
+    ViewData["Title"] = "GetMesageById";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>Mesaj Detayı</h1>
+@Html.Label("Mesaj ID")
+@Html.TextBoxFor(x => x.MessageID, new {@class = "form-control", @readonly = "readonly"})
+<br />
+@Html.Label("Mesaj Başlığı")
+@Html.TextBoxFor(x => x.Subject, new {@class = "form-control", @readonly = "readonly"})
+<br />
+@Html.Label("Mesaj İçeriği")
+@Html.TextAreaFor(x => x.MessageDetails, 15, 3, new {@class = "form-control", @readonly = "readonly"})
+<br />
+<a href="/Message/GetAllByReciverId" class="btn btn-success">Mesaj Kutusuna Dön</a>
+

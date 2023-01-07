@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Entities.Concrete.Notification>
+@{
+    ViewData["Title"] = "GetAllNotifications";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>Bildiirimler</h1>
+<table class="table table-border">
+    <tr>
+        <td>#</td>
+        <td>Bildirim</td>
+        <td>Tarih</td>
+    </tr>
+    @foreach(var item in Model)
+    {
+       <tr>
+        <td>@item.NotificationID</td>
+        <td>@item.NotificationDetails</td>
+        <td>@item.NotificationDate</td>
+    </tr>
+    }
+</table>
+

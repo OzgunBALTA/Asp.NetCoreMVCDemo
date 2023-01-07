@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Core.Entities.Concrete.Message>
+
+@{
+    ViewData["Title"] = "GetAllByReciverId";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>Gelen Mesajlar</h1>
+<br />
+@if (Model.Count() > 0)
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Konu</th>
+            <th>Gönderen</th>
+            <th>Tarih</th>
+            <th>Mesajı Aç</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MessageID</td>
+                <td>@item.Subject</td>
+                <td>@(item.MessageSender.FirstName + " " + item.MessageSender.LastName)</td>
+                <td>@(((DateTime)item.MessageDate).ToString("dd-MMM-yyyy"))</td>
+                <td><a href="/Message/GetMessageById/@item.MessageID" class="btn btn-warning">Mesajı Aç</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Message/AddMessage" class="btn btn-primary">Mesaj Gönder</a>
+}
+else
+{
+    <h6>Gelen Mesajınız Yok</h6>
+    <a href="/Message/AddMessage" class="btn btn-primary">Mesaj Gönder</a>
+}
+
+
