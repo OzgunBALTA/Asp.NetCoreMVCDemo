@@ -24,19 +24,7 @@ namespace CoreDemo.Controllers
         {
             return RedirectToAction("Index","Dashboard");
         }
-        public IActionResult WriterSidebarPartial()
-        {
-            return PartialView();
-        }
-        public IActionResult WriterFooterPartial()
-        {
-            return PartialView();
-        }
-        public IActionResult WriterNavbarPartial()
-        {
-            return PartialView();
-        }
-
+        
         [HttpGet]
         public IActionResult WriterEditProfile()
         {

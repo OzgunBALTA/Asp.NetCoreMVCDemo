@@ -1,13 +1,9 @@
-﻿namespace CoreDemo.Models.UserForProfile
+﻿using Asp.NetCoreMVCDemo.Models.UserProfileModels;
+
+namespace CoreDemo.Models.UserForProfile
 {
-    public class UserForUpdateModel
+    public class UserForUpdateModel : UserBaseModel
     {
         public int UserId { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public IFormFile UserImage { get; set; }
-        public string UserAbout { get; set; }
     }
 }

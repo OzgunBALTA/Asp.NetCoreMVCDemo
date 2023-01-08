@@ -221,7 +221,10 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Blogs");
+                    b.ToTable("Blogs", t =>
+                        {
+                            t.HasTrigger("AddBlogInRatingTable");
+                        });
                 });
 
             modelBuilder.Entity("Entities.Concrete.BlogRayting", b =>
@@ -306,7 +309,10 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("BlogID");
 
-                    b.ToTable("Comments");
+                    b.ToTable("Comments", t =>
+                        {
+                            t.HasTrigger("AddScoreInComment");
+                        });
                 });
 
             modelBuilder.Entity("Entities.Concrete.Contact", b =>

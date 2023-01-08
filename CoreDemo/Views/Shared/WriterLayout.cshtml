@@ -11,14 +11,14 @@
 </head>
 <body>
     <div class="container-scroller">
-        @await Html.PartialAsync("~/Views/Writer/_WriterNavbarPartial.cshtml")
+        @await Component.InvokeAsync("WriterNavbar")
         <div class="container-fluid page-body-wrapper">
-            @await Html.PartialAsync("~/Views/Writer/_WriterSidebarPartial.cshtml")
+            @await Component.InvokeAsync("WriterSidebar")
             <div class="main-panel">
                 <div class="content-wrapper">
                     @RenderBody()
                 </div>
-                @await Html.PartialAsync("~/Views/Writer/_WriterFooterPartial.cshtml")
+                @await Component.InvokeAsync("WriterFooter")
             </div>
         </div>
     </div>

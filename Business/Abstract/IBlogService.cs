@@ -11,11 +11,12 @@ namespace Business.Abstract
     public interface IBlogService
     {
         IResult Add(Blog blog);
-        IResult Delete(Blog blog);
+        IResult ChangeBlogStatus(Blog blog);
         IResult Update(Blog blog);
         IDataResult<List<Blog>> GetAll();
         IDataResult<Blog> GetByID(int id);
         IDataResult<List<Blog>> GetAllWithCategory();
+        IDataResult<List<Blog>> GetAllStatusTrueWithCategory();
         IDataResult<List<Blog>> GetBlogListById(int id);
         IDataResult<List<Blog>> GetBlogListByUserId(int id);
         IDataResult<List<Blog>> GetLast3Blogs();

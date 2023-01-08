@@ -30,10 +30,11 @@ namespace Business.Concrete
             return new SuccessResult(Messages.BlogAdded);
         }
 
-        public IResult Delete(Blog blog)
+        public IResult ChangeBlogStatus(Blog blog)
         {
-            _blogDal.Delete(blog);
-            return new SuccessResult(Messages.BlogDeleted);
+            blog.BlogStatus = !blog.BlogStatus;
+            _blogDal.Update(blog);
+            return new SuccessResult(Messages.BlogStatusChanged);
         }
 
         public IDataResult<List<Blog>> GetAll()
@@ -86,6 +87,11 @@ namespace Business.Concrete
         public IDataResult<int> WriterTotalBlogCount(int id)
         {
             return new SuccessDataResult<int>(GetBlogListByUserId(id).Data.Count);
+        }
+
+        public IDataResult<List<Blog>> GetAllStatusTrueWithCategory()
+        {
+            return new SuccessDataResult<List<Blog>>(_blogDal.GetAllWithCategoty().Where(x => x.BlogStatus == true).ToList());
         }
     }
 }

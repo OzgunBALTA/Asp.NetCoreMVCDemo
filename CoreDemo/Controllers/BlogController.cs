@@ -24,7 +24,7 @@ namespace CoreDemo.Controllers
 
         public IActionResult Index()
         {
-            var result = _blogManager.GetAllWithCategory();
+            var result = _blogManager.GetAllStatusTrueWithCategory();
             return View(result.Data);
         }
 
@@ -76,10 +76,10 @@ namespace CoreDemo.Controllers
 
             return View();
         }
-        public IActionResult DeleteBlog(int id)
+        public IActionResult ChangeBlogStatus(int id)
         {
             var blog = _blogManager.GetByID(id).Data;
-            _blogManager.Delete(blog);
+            _blogManager.ChangeBlogStatus(blog);
             return RedirectToAction("GetBlogListByWriter", "Blog");
         }
 

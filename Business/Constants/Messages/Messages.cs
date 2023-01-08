@@ -15,7 +15,7 @@ namespace Business.Constants.Messages
         public static string AboutUpdated = "Hakkında Güncellendi";
 
         public static string BlogAdded = "Blog Eklendi";
-        public static string BlogDeleted = "Blog Silindi";
+        public static string BlogStatusChanged = "Blog Durumu Güncellendi";
         public static string BlogUpdated = "Blog Güncellendi";
 
         public static string CommentAdded = "Yorum Eklendi";
