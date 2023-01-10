@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.Entities.Abstract
 {
-    public class UserBase
+    public abstract class UserBase
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
