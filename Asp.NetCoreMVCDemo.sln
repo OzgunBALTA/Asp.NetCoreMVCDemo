@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcWebUI--", "CoreDemo\MvcWebUI--.csproj", "{1B18B38B-E31F-4FB5-8C7A-80313B8C3405}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{9DFCE028-B9DE-4E20-86C9-07EB747F83A8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{ACBC3B56-F047-4023-9F24-456094A69560}"
@@ -21,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1B18B38B-E31F-4FB5-8C7A-80313B8C3405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1B18B38B-E31F-4FB5-8C7A-80313B8C3405}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1B18B38B-E31F-4FB5-8C7A-80313B8C3405}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1B18B38B-E31F-4FB5-8C7A-80313B8C3405}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9DFCE028-B9DE-4E20-86C9-07EB747F83A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9DFCE028-B9DE-4E20-86C9-07EB747F83A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DFCE028-B9DE-4E20-86C9-07EB747F83A8}.Release|Any CPU.ActiveCfg = Release|Any CPU

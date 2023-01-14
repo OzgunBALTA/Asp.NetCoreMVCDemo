@@ -28,7 +28,8 @@ namespace CoreDemo.Controllers
         [HttpGet]
         public IActionResult WriterEditProfile()
         {
-            var user = _userManager.GetById(9);
+            var email = User.Identity.Name;
+            var user = _userManager.GetUserByMail(email);
             var result = _userManager.GetUserForUpdate(user);
             return View(result);
         }
@@ -36,8 +37,10 @@ namespace CoreDemo.Controllers
         [HttpPost]
         public IActionResult WriterEditProfile(UserForUpdateDto userForUpdateDto)
         {
-            userForUpdateDto.UserId = 9;
-            userForUpdateDto.Email = "default2@ozgun.com";
+            var email = User.Identity.Name;
+            var user = _userManager.GetUserByMail(email);
+            userForUpdateDto.UserId = user.Id;
+            userForUpdateDto.Email = user.Email;
             var result = _authManager.UpdateUser(userForUpdateDto);
             if (result.Success)
             {
