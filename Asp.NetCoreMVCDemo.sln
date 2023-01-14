@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asp.NetCoreMVCDemo", "CoreDemo\Asp.NetCoreMVCDemo.csproj", "{1B18B38B-E31F-4FB5-8C7A-80313B8C3405}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcWebUI--", "CoreDemo\MvcWebUI--.csproj", "{1B18B38B-E31F-4FB5-8C7A-80313B8C3405}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{9DFCE028-B9DE-4E20-86C9-07EB747F83A8}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{7BD6E640-1C7E-4144-90AC-3E441FCD7F78}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{C8CFF4BE-51F1-41E3-B152-0EF550B5E151}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcWebUI", "MvcWebUI\MvcWebUI.csproj", "{AA4F0061-6552-4D53-B945-93E435BC621D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{C8CFF4BE-51F1-41E3-B152-0EF550B5E151}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8CFF4BE-51F1-41E3-B152-0EF550B5E151}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8CFF4BE-51F1-41E3-B152-0EF550B5E151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA4F0061-6552-4D53-B945-93E435BC621D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA4F0061-6552-4D53-B945-93E435BC621D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA4F0061-6552-4D53-B945-93E435BC621D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA4F0061-6552-4D53-B945-93E435BC621D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
