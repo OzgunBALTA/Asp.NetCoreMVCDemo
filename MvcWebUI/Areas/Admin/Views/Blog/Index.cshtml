@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Entities.Concrete.Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+<h1>Bloglar</h1>
+<br />
+@if (Model.Count() > 0)
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Blog Başlığı</th>
+            <th>Oluşturma Tarihi</th>
+            <th>Kategori</th>
+            <th>Durum</th>
+            <th>Düzenle</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.BlogID</td>
+                <td>@item.BlogTitle</td>
+                <td>@(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))</td>
+                <td>@item.Category.CategoryName</td>
+                <td>
+                    <a href="/Admin/Blog/ChangeBlogStatus/@item.BlogID" class="btn btn-warning" id="ChangeBtn"
+                    onclick="return confirm('Blog durumunu değiştirmek istedğinize emin misiniz?');">
+                    @(item.BlogStatus == true ? "Aktif" : "Pasif")</a>
+                </td>
+                <td><a href="#" class="btn btn-secondary">Düzenle</a></td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <h3>Henüz Bir Blog Yok</h3>
+}
+
+<br />
+<a href="/Admin/Blog/ExportBlogListExcel" class="btn btn-success">Blog Listesini İndir</a>
+

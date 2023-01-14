@@ -18,16 +18,24 @@ namespace MvcWebUI.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var result = _blogManager.GetAllWithCategory();
+            return View(result.Data);
         }
 
         public IActionResult ExportBlogListExcel()
         {
-            var file = _blogManager.GetAll().Data;
-            var filePath = @"C:\Users\ozgun\Desktop\Excel";
-            var fileName = "Blogs.xlsx";
+            var file = _blogManager.GetAllWithCategory().Data;
+            var filePath = @"C:\Users\ozgun\Desktop\Excel\";
+            var fileName = "Blogs";
             _exportHelper.Export(file, filePath, fileName);
-            return View();
+            return RedirectToAction("Index", "Blog");
+        }
+
+        public IActionResult ChangeBlogStatus(int id)
+        {
+            var blog = _blogManager.GetByID(id).Data;
+            _blogManager.ChangeBlogStatus(blog);
+            return RedirectToAction("Index", "Blog");
         }
     }
 }

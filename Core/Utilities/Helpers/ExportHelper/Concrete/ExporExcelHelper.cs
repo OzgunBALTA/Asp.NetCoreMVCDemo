@@ -17,7 +17,7 @@ namespace Core.Utilities.Helpers.ExportHelper.Concrete
             {
                 workbook.AddWorksheet(fileName).FirstCell().InsertTable<T>(list, false);
 
-                workbook.SaveAs(filePath+fileName);
+                workbook.SaveAs(filePath + fileName + ".xlsx");
                 exported = true;
             }
 
