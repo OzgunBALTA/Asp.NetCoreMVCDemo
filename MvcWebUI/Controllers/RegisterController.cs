@@ -12,13 +12,13 @@ namespace CoreDemo.Controllers
     public class RegisterController : Controller
     {
         IAuthService _authManager;
-        RegisterValidator _registerValidator;
-
-        public RegisterController(IAuthService authManager, RegisterValidator registerValidator)
+        
+        public RegisterController(IAuthService authManager)
         {
             _authManager = authManager;
-            _registerValidator = registerValidator;
         }
+
+        RegisterValidator _registerValidator = new RegisterValidator();
 
         [HttpGet]
         public IActionResult Index()

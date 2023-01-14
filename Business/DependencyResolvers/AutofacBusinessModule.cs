@@ -4,6 +4,8 @@ using Business.Abstract;
 using Business.Concrete;
 using Business.ValidationRules.FluentValidation;
 using Castle.DynamicProxy;
+using Core.Utilities.Helpers.ExportHelper.Abstract;
+using Core.Utilities.Helpers.ExportHelper.Concrete;
 using Core.Utilities.Interceptors.Autofac;
 using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
@@ -26,7 +28,6 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<BlogManager>().As<IBlogService>();
             builder.RegisterType<EfBlogDal>().As<IBlogDal>();
-            builder.RegisterType<BlogValidator>().As<BlogValidator>();
 
             builder.RegisterType<CategoryManager>().As<ICategoryService>();
             builder.RegisterType<EfCategoryDal>().As<ICategoryDal>();
@@ -49,9 +50,10 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<MessageManager>().As<IMessageService>();
             builder.RegisterType<EfMessageDal>().As<IMessageDal>();
 
+            builder.RegisterType<ExporExcelHelper>().As<IExportHelper>();
+
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
-            builder.RegisterType<RegisterValidator>().As<RegisterValidator>();
 
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly(); 
