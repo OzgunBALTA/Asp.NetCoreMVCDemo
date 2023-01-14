@@ -5,6 +5,7 @@ using Entities.Concrete;
 using Entities.DTOs;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -13,14 +14,16 @@ namespace CoreDemo.Controllers
     public class BlogController : Controller
     {
         IBlogService _blogManager;
-        BlogValidator _blogValidator;
         ICategoryService _categoryManager;
-        public BlogController(IBlogService blogManager, BlogValidator blogValidator, ICategoryService categoryManager)
+        IUserService _userManager;
+        public BlogController(IBlogService blogManager, ICategoryService categoryManager, IUserService userManager)
         {
             _blogManager = blogManager;
-            _blogValidator = blogValidator;
             _categoryManager = categoryManager;
+            _userManager = userManager;
         }
+
+        BlogValidator _blogValidator = new BlogValidator();
 
         public IActionResult Index()
         {
@@ -34,9 +37,11 @@ namespace CoreDemo.Controllers
             var result = _blogManager.GetBlogListById(id);
             return View(result.Data);
         }
-        public IActionResult GetBlogListByWriter(int id)
+        public IActionResult GetBlogListByWriter()
         {
-            var result = _blogManager.GetAllWithCategoryByWriter(1);
+            var email = User.Identity.Name;
+            var user = _userManager.GetUserByMail(email);
+            var result = _blogManager.GetAllWithCategoryByWriter(user.Id);
             return View(result.Data);
         }
 
