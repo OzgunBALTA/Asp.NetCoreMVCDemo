@@ -1,15 +1,11 @@
 ﻿using Business.Abstract;
 using Business.Constants.Messages;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using Entities.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
@@ -22,10 +18,18 @@ namespace Business.Concrete
             _categoryDal = categoryDal;
         }
 
+        [ValidationAspect(typeof(CategoryValidator))]
         public IResult Add(Category category)
         {
             _categoryDal.Add(category);
             return new SuccessResult(Messages.CategoryAdded);
+        }
+
+        public IResult ChangeCategoryStatus(Category category)
+        {
+            category.CategoryStatus = !category.CategoryStatus;
+            _categoryDal.Update(category);
+            return new SuccessResult(Messages.CategoryStatusChanged);
         }
 
         public IResult Delete(Category category)
@@ -49,6 +53,7 @@ namespace Business.Concrete
             return new SuccessDataResult<int>(_categoryDal.GetAll().Count);
         }
 
+        [ValidationAspect(typeof(CategoryValidator))]
         public IResult Update(Category category)
         {
             _categoryDal.Update(category);

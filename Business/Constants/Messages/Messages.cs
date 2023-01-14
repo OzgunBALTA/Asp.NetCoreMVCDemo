@@ -29,6 +29,7 @@ namespace Business.Constants.Messages
         public static string CategoryAdded = "Kategori Eklendi";
         public static string CategoryDeleted = "Kategori Silindi";
         public static string CategoryUpdated = "Kategori Güncellendi";
+        public static string CategoryStatusChanged = "Kategori Durumu Güncellendi";
 
         public static string MessageSended = "Mesaj Gönderildi";
         public static string MessageDeleted = "Mesaj Silindi";
@@ -55,6 +56,10 @@ namespace Business.Constants.Messages
         public static string BlogImageNotEmpty = "Blog Resmi Ekleyiniz";
         public static string BlogTitileLength = "Blog Başlığı Minimum 2 Karakter Maksimum 50 Karakter İçermelidir.";
         public static string BlogContentLength = "Blog İçeriği Minimum 150 Karakter İçermelidir.";
+
+        public static string CategoryNameNotEmpty = "Kategori Başlığı Boş Bırakılamaz";
+        public static string CategoryNameLength = "Kategori Başlığı Minimum 2 Karakter Maksimum 50 Karakter İçermelidir.";
+        public static string CategoryDescriptionNotEmpty = "Kategori İçeriği Boş Bırakılamaz";
 
         public static string Subscribed = "Abone Olundu";
 
