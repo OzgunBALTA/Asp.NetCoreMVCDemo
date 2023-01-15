@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Asp.NetCoreMVCDemo.Areas.Admin.ViewComponents
+namespace MvcWebUI.Areas.Admin.ViewComponents.AdminLayout
 {
-    public class AdminSidebar : ViewComponent
+    public class AdminNavbar : ViewComponent
     {
         public IViewComponentResult Invoke()
         {
