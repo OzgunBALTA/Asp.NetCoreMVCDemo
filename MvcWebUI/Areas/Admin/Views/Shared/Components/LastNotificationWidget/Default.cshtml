@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Entities.Concrete.Notification>
+
+<div class="col-lg-3">
+    @foreach (var item in Model)
+    {
+        <div class="widget yellw-bg no-padding">
+            <div class="p-m">
+                <h1 class="m-xs">Son Bildirim</h1>
+
+                <h3 class="font-bold no-margins">
+                    @item.NotificationType
+                </h3>
+                <small>@item.NotificationDetails</small>
+            </div>
+            <div class="flot-chart">
+                <div class="flot-chart-content" id="flot-chart3"></div>
+            </div>
+        </div>
+    }
+</div>

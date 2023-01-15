@@ -93,5 +93,10 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Blog>>(_blogDal.GetAllWithCategoty().Where(x => x.BlogStatus == true).ToList());
         }
+
+        public IDataResult<List<Blog>> GetLastBlog()
+        {
+            return new SuccessDataResult<List<Blog>>(_blogDal.GetAll().TakeLast(1).ToList());
+        }
     }
 }

@@ -13,7 +13,9 @@ namespace Business.Abstract
         IResult Add(Notification notification);
         IResult Delete(Notification notification);
         IResult Update(Notification notification);
-        IDataResult<List<Notification>> GetAll();
         IDataResult<Notification> GetById(int id);
+        IDataResult<List<Notification>> GetAll();
+        IDataResult<List<Notification>> GetLastNotification();
+        
     }
 }

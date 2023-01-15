@@ -16,9 +16,11 @@ namespace Business.Abstract
         void Add(User user);
         User GetUserByMail(string email);
         User GetById(int id);
+        List<User> GetAll();
         void Update(User user);
         UserForUpdateDto GetUserForUpdate(User user);
         string GetUserImageByUserId(int id);
         string GetUserAboutById(int id);
+        List<User> GetLastUser();
     }
 }

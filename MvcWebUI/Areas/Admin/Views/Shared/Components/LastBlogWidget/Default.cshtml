@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Entities.Concrete.Blog>
+
+<div class="col-lg-6">
+    @foreach (var item in Model)
+    {
+        <div class="widget navy-bg no-padding">
+            <div class="p-m">
+                <h1 class="m-xs">Son Yazılan Blog</h1>
+                <h3 class="font-bold no-margins">@item.BlogTitle</h3>
+                <small>
+                    @item.BlogContent.Substring(0,
+                item.BlogContent.Substring(0,70).LastIndexOf(" "))...
+                </small>
+            </div>
+            <div class="flot-chart">
+                <div class="flot-chart-content" id="flot-chart1"></div>
+            </div>
+        </div>
+    }
+</div>

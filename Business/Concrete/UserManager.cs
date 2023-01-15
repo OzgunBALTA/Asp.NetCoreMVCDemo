@@ -61,5 +61,15 @@ namespace Business.Concrete
             var result = _userDal.Get(x => x.Id == id).UserAbout;
             return result;
         }
+
+        public List<User> GetAll()
+        {
+            return _userDal.GetAll();
+        }
+
+        public List<User> GetLastUser()
+        {
+            return _userDal.GetAll().TakeLast(1).ToList();
+        }
     }
 }

@@ -42,6 +42,11 @@ namespace Business.Concrete
             return new SuccessDataResult<Notification>(_notificationDal.Get(x => x.NotificationID == id));
         }
 
+        public IDataResult<List<Notification>> GetLastNotification()
+        {
+            return new SuccessDataResult<List<Notification>>(_notificationDal.GetAll().TakeLast(1).ToList());
+        }
+
         public IResult Update(Notification notification)
         {
             _notificationDal.Update(notification);

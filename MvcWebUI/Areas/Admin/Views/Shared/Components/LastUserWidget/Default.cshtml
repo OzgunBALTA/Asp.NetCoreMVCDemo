@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Core.Entities.Concrete.User>
+
+<div class="col-lg-3">
+    @foreach (var item in Model)
+    {
+        <div class="widget lazur-bg no-padding">
+            <div class="p-m">
+                <h1 class="m-xs">Son Kullanıcı</h1>
+
+                <h3 class="font-bold no-margins">
+                    @item.FirstName - @item.LastName
+                </h3>
+                <small>@item.Email</small>
+            </div>
+            <div class="flot-chart">
+                <div class="flot-chart-content" id="flot-chart2"></div>
+            </div>
+        </div>
+    }
+</div>
