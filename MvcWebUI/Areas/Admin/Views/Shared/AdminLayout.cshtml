@@ -23,23 +23,13 @@
 <body>
 
     <div id="wrapper">
-
         @await Component.InvokeAsync("AdminSidebar")
-
         <div id="page-wrapper" class="gray-bg">
             @await Component.InvokeAsync("AdminNavbar")
             <div class="wrapper wrapper-content animated fadeInRight">
                 @RenderBody();
             </div>
-            <div class="footer">
-                <div class="float-right">
-                    10GB of <strong>250GB</strong> Free.
-                </div>
-                <div>
-                    <strong>Copyright</strong> Example Company &copy; 2014-2018
-                </div>
-            </div>
-
+            @await Component.InvokeAsync("AdminFooter")
         </div>
     </div>
 

@@ -22,6 +22,7 @@ namespace Business.Abstract
         IDataResult<List<Blog>> GetBlogListById(int id);
         IDataResult<List<Blog>> GetBlogListByUserId(int id);
         IDataResult<List<Blog>> GetAllWithCategoryByWriter(int id);
+        IDataResult<List<Blog>> GetBlogListByCategoryId(int id);
         IDataResult<int> TotalBlogCount();
         IDataResult<int> WriterTotalBlogCount(int id);
     }

@@ -16,5 +16,6 @@ namespace Business.Abstract
         IDataResult<List<Comment>> GetAll();
         IDataResult<Comment> GetByID(int id);
         IDataResult<List<Comment>> GetAllByBlogID(int id);
+        IDataResult<List<Comment>> GetCommentListByBlogId(int id);
     }
 }

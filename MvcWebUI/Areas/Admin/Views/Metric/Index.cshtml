@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="row">
+            @await Html.PartialAsync("_BlogCountInCategoryChartPartialView")
+            <div class="col-lg-6">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <h5>Percentage division</h5>
+                        <h2>100/54</h2>
+                        <div class="text-center">
+                            <div id="sparkline6"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+             <div class="col-lg-6">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <h5>Percentage division</h5>
+                        <h2>100/54</h2>
+                        <div class="text-center">
+                            <div id="sparkline6"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <h5>Percentage division</h5>
+                        <h2>100/54</h2>
+                        <div class="text-center">
+                            <div id="sparkline6"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+
+

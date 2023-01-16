@@ -1,0 +1,47 @@
+﻿<div class="col-lg-6">
+    <div class="ibox">
+        <div class="ibox-content">
+            <div class="text-center">
+                <div id="categorychartdiv"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(DrawonLoad);
+
+    function DrawonLoad() {
+        $(function () {
+            $.ajax({
+                type: 'GET',
+                url: '/Admin/Metric/BlogCountInCategoryChart/',
+                success: function (chartsData) {
+
+                    var Data = chartsData.jsonList;
+                    var data = new google.visualization.DataTable();
+
+                    data.addColumn('string', 'categoryName');
+                    data.addColumn('number', 'tCountInCategory');
+
+                    for (var i = 0; i < Data.length; i++) {
+                        data.addRow([Data[i].categoryName, Data[i].tCountInCategory]);
+                    }
+
+                    var chart = new google.visualization.PieChart(document.getElementById('categorychartdiv'));
+
+                    chart.draw(data,
+                        {
+                            title: "Kategorilerdeki Blogların Oranı",
+                            position: "top",
+                            fontsize: "5px"
+                        });
+                }
+            });
+        })
+    }
+
+</script>
