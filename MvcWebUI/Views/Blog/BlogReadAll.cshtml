@@ -64,7 +64,7 @@
                         <h4>Mail Bültenine Abone Ol</h4>
                         @await Html.PartialAsync("~/Views/NewsLetter/SubscribeMail.cshtml");
                         @await Component.InvokeAsync("CategoryList")
-                        @await Component.InvokeAsync("WriterLastBlogs", new {ViewBag.userId})
+                        @await Component.InvokeAsync("WriterLastBlogs", new { id = ViewBag.userId})
                         <div class="single-gd my-5 tech-btm">
                             <h4>Our Progress</h4>
                             <div class="progress">
