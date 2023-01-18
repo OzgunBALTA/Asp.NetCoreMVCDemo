@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants.Messages;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -23,13 +25,16 @@ namespace Business.Concrete
             _blogDal = blogDal;
         }
 
+        [SecuredOperation("Admin, Writer")]
         [ValidationAspect(typeof(BlogValidator))]
+        [CacheRemoveAspect("IBlog.Get")]
         public IResult Add(Blog blog)
         {
             _blogDal.Add(blog);
             return new SuccessResult(Messages.BlogAdded);
         }
 
+        [CacheRemoveAspect("IBlog.Get")]
         public IResult ChangeBlogStatus(Blog blog)
         {
             blog.BlogStatus = !blog.BlogStatus;
@@ -37,43 +42,52 @@ namespace Business.Concrete
             return new SuccessResult(Messages.BlogStatusChanged);
         }
 
+        [CacheAspect]
         public IDataResult<List<Blog>> GetAll()
         {
             return new SuccessDataResult<List<Blog>>(_blogDal.GetAll());
         }
 
+        [CacheAspect]
         public IDataResult<Blog> GetByID(int id)
         {
             return new SuccessDataResult<Blog>(_blogDal.Get(b => b.BlogID == id));
         }
 
+        [CacheAspect]
         public IDataResult<List<Blog>> GetAllWithCategory()
         {
             return new SuccessDataResult<List<Blog>>(_blogDal.GetAllWithCategoty());
         }
 
+        [SecuredOperation("Admin")]
         [ValidationAspect(typeof(BlogValidator))]
+        [CacheRemoveAspect("IBlog.Get")]
         public IResult Update(Blog blog)
         {
             _blogDal.Update(blog);
             return new SuccessResult(Messages.BlogUpdated);
         }
 
+        [CacheAspect]
         public IDataResult<List<Blog>> GetBlogListById(int id)
         {
             return new SuccessDataResult<List<Blog>>(_blogDal.GetAll(b => b.BlogID == id));
         }
 
+        [CacheAspect]
         public IDataResult<List<Blog>> GetBlogListByUserId(int id)
         {
             return new SuccessDataResult<List<Blog>>(_blogDal.GetAll(b => b.UserId == id));
         }
 
+        [CacheAspect]
         public IDataResult<List<Blog>> GetLast3Blogs()
         {
             return new SuccessDataResult<List<Blog>>(_blogDal.GetAll().TakeLast(3).ToList());
         }
 
+        [CacheAspect]
         public IDataResult<List<Blog>> GetAllWithCategoryByWriter(int id)
         {
             return new SuccessDataResult<List<Blog>>(_blogDal.GetAllWithCategoty(x => x.UserId == id));
@@ -89,16 +103,19 @@ namespace Business.Concrete
             return new SuccessDataResult<int>(GetBlogListByUserId(id).Data.Count);
         }
 
+        [CacheAspect]
         public IDataResult<List<Blog>> GetAllStatusTrueWithCategory()
         {
             return new SuccessDataResult<List<Blog>>(_blogDal.GetAllWithCategoty().Where(x => x.BlogStatus == true).ToList());
         }
 
+        [CacheAspect]
         public IDataResult<List<Blog>> GetLastBlog()
         {
             return new SuccessDataResult<List<Blog>>(_blogDal.GetAll().TakeLast(1).ToList());
         }
 
+        [CacheAspect]
         public IDataResult<List<Blog>> GetBlogListByCategoryId(int id)
         {
             return new SuccessDataResult<List<Blog>>(_blogDal.GetAll(x => x.CategoryID == id));
