@@ -22,14 +22,12 @@ namespace Business.Concrete
 
         [SecuredOperation("Admin, Writer")]
         [ValidationAspect(typeof(CategoryValidator))]
-        [CacheRemoveAspect("ICategoryService.Get")]
         public IResult Add(Category category)
         {
             _categoryDal.Add(category);
             return new SuccessResult(Messages.CategoryAdded);
         }
 
-        [CacheRemoveAspect("ICategoryService.Get")]
         public IResult ChangeCategoryStatus(Category category)
         {
             category.CategoryStatus = !category.CategoryStatus;
@@ -38,20 +36,17 @@ namespace Business.Concrete
         }
 
         [SecuredOperation("Admin")]
-        [CacheRemoveAspect("ICategoryService.Get")]
         public IResult Delete(Category category)
         {
             _categoryDal.Delete(category);
             return new SuccessResult(Messages.CategoryDeleted);
         }
 
-        [CacheAspect]
         public IDataResult<List<Category>> GetAll()
         {
             return new SuccessDataResult<List<Category>>(_categoryDal.GetAll());
         }
 
-        [CacheAspect]
         public IDataResult<Category> GetByID(int id)
         {
             return new SuccessDataResult<Category>(_categoryDal.Get(c => c.CategoryID == id));
@@ -64,7 +59,6 @@ namespace Business.Concrete
 
         [SecuredOperation("Admin")]
         [ValidationAspect(typeof(CategoryValidator))]
-        [CacheRemoveAspect("ICategoryService.Get")]
         public IResult Update(Category category)
         {
             _categoryDal.Update(category);

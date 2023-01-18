@@ -24,7 +24,6 @@ namespace Business.Concrete
         }
 
         [SecuredOperation("Admin")]
-        [CacheRemoveAspect("IAboutService.Get")]
         public IResult Add(About about)
         {
             _aboutDal.Add(about);
@@ -32,27 +31,23 @@ namespace Business.Concrete
         }
 
         [SecuredOperation("Admin")]
-        [CacheRemoveAspect("IAboutService.Get")]
         public IResult Delete(About about)
         {
             _aboutDal.Delete(about);
             return new SuccessResult(Messages.AboutDeleted);
         }
 
-        [CacheAspect]
         public IDataResult<List<About>> GetAll()
         {
             return new SuccessDataResult<List<About>>(_aboutDal.GetAll());
         }
 
-        [CacheAspect]
         public IDataResult<About> GetByID(int id)
         {
             return new SuccessDataResult<About>(_aboutDal.Get(a => a.AboutID == id));
         }
 
         [SecuredOperation("Admin")]
-        [CacheRemoveAspect("IAboutService.Get")]
         public IResult Update(About about)
         {
             _aboutDal.Update(about);

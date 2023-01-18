@@ -12,9 +12,9 @@ namespace CoreDemo.ViewComponents.Blog
 			_blogManager = blogManager;
 		}
 
-		public IViewComponentResult Invoke()
+		public IViewComponentResult Invoke(int id)
 		{
-			var result = _blogManager.GetBlogListByUserId(1);
+			var result = _blogManager.GetBlogListByUserId(id);
 			return View(result.Data);
 		}
 	}

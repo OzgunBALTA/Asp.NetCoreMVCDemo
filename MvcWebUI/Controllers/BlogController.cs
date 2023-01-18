@@ -33,8 +33,9 @@ namespace CoreDemo.Controllers
 
         public IActionResult BlogReadAll(int id)
         {
-            ViewBag.i = id;
             var result = _blogManager.GetBlogListById(id);
+            ViewBag.blogId = id;
+            ViewBag.userId = result.Data[0].UserId;
             return View(result.Data);
         }
         public IActionResult GetBlogListByWriter()

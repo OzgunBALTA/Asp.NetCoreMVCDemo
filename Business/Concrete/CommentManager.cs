@@ -23,7 +23,6 @@ namespace Business.Concrete
             _commentDal = commentDal;
         }
 
-        [CacheRemoveAspect("ICommentService.Get")]
         public IResult Add(Comment comment)
         {
             _commentDal.Add(comment);
@@ -31,39 +30,33 @@ namespace Business.Concrete
         }
 
         [SecuredOperation("Admin, Writer")]
-        [CacheRemoveAspect("ICommentService.Get")]
         public IResult Delete(Comment comment)
         {
             _commentDal.Delete(comment);
             return new SuccessResult(Messages.CommentDeleted);
         }
 
-        [CacheAspect]
         public IDataResult<List<Comment>> GetAll()
         {
             return new SuccessDataResult<List<Comment>>(_commentDal.GetAll());
         }
 
-        [CacheAspect]
         public IDataResult<List<Comment>> GetAllByBlogID(int id)
         {
             return new SuccessDataResult<List<Comment>>(_commentDal.GetAll(c => c.BlogID == id));
         }
 
-        [CacheAspect]
         public IDataResult<Comment> GetByID(int id)
         {
             return new SuccessDataResult<Comment>(_commentDal.Get(c => c.CommentID == id));
         }
 
-        [CacheAspect]
         public IDataResult<List<Comment>> GetCommentListByBlogId(int id)
         {
             return new SuccessDataResult<List<Comment>>(_commentDal.GetAll(x => x.BlogID == id));
         }
 
         [SecuredOperation("Admin")]
-        [CacheRemoveAspect("ICommentService.Get")]
         public IResult Update(Comment comment)
         {
             _commentDal.Update(comment);

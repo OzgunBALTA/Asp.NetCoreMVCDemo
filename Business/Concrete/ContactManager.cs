@@ -24,7 +24,6 @@ namespace Business.Concrete
         }
 
         [SecuredOperation("Admin, Writer")]
-        [CacheRemoveAspect("IContactService.Get")]
         public IResult Add(Contact contact)
         {
             _contactDal.Add(contact);
@@ -32,27 +31,23 @@ namespace Business.Concrete
         }
 
         [SecuredOperation("Admin")]
-        [CacheRemoveAspect("IContactService.Get")]
         public IResult Delete(Contact contact)
         {
             _contactDal.Delete(contact);
             return new SuccessResult(Messages.ContactDeleted);
         }
 
-        [CacheAspect]
         public IDataResult<List<Contact>> GetAll()
         {
             return new SuccessDataResult<List<Contact>>(_contactDal.GetAll());
         }
 
-        [CacheAspect]
         public IDataResult<Contact> GetByID(int id)
         {
             return new SuccessDataResult<Contact>(_contactDal.Get(c => c.ContactID == id));
         }
 
         [SecuredOperation("Admin, Writer")]
-        [CacheRemoveAspect("IContactService.Get")]
         public IResult Update(Contact contact)
         {
             _contactDal.Update(contact);
