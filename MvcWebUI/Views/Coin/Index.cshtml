@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MvcWebUI.Models.CoinModel.CoinModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th scope="col">İkon</th>
+            <th scope="col">Kripto Para Adı</th>
+            <th scope="col">Fiyatı ($)</th>
+            <th scope="col">Değişim Oranı(%)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@item.Symbol" width="35" height="35"/>
+                </td>
+                <td>@item.Name</td>
+                <td>@item.Current_price</td>
+                <td>@item.Price_change_24h</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
