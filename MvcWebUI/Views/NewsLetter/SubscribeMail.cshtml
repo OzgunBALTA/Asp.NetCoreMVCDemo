@@ -1,30 +1,9 @@
 ﻿<div class="tech-btm">
-    <p>Pellentesque dui, non felis. Maecenas male </p>
+    <p>Yazılarımızla ilgili tüm haberleri almak için abone olun</p>
     <form action="/newsletter/subscribemail" method="post">
         <input type="email" id="txtEmail" placeholder="Email Adresinizi Giriniz" required="" name="MailAddress">
         <input type="submit" id="submit" value="Subscribe">
     </form>
 </div>
-
-@section Scripts{
-    <script>
-
-        $("#submit").click(function(){
-            let newsLetter = {
-                MailAddress = $("#txtEmail").val()
-            }; 
-
-            $.ajax({
-                type: "post",
-                url: "/NewsLetter/SubscribeMail/",
-                data: newsLetter,
-                success: function(func){
-                    let result = jQuery.parseJSON(func)
-                    alert("Başarılı")
-                }
-            });
-        });
-
-    </script>
 }
 
