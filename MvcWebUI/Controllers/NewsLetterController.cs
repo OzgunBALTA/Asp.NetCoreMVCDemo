@@ -2,6 +2,7 @@
 using Entities.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace CoreDemo.Controllers
 {
@@ -25,6 +26,7 @@ namespace CoreDemo.Controllers
         {
             newsLetter.MailStatus = true;
             _newsletterManager.Add(newsLetter);
+            var jsonNewsletter = JsonConvert.SerializeObject(newsLetter);
             return RedirectToAction("Index", "Blog");
         }
     }
