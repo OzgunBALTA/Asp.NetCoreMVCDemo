@@ -41,7 +41,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Notification>>(_notificationDal.GetAll());
         }
 
-        public IDataResult<Notification> GetById(int id)
+        public IDataResult<Notification> GetByID(int id)
         {
             return new SuccessDataResult<Notification>(_notificationDal.Get(x => x.NotificationID == id));
         }

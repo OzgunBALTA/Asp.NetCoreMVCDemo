@@ -51,11 +51,6 @@ namespace Business.Concrete
             return new SuccessDataResult<Comment>(_commentDal.Get(c => c.CommentID == id));
         }
 
-        public IDataResult<List<Comment>> GetCommentListByBlogId(int id)
-        {
-            return new SuccessDataResult<List<Comment>>(_commentDal.GetAll(x => x.BlogID == id));
-        }
-
         [SecuredOperation("Admin")]
         public IResult Update(Comment comment)
         {
