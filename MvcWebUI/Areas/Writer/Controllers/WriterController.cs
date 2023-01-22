@@ -7,8 +7,9 @@ using Entities.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CoreDemo.Controllers
+namespace MvcWebUI.Areas.Writer.Controllers
 {
+    [Area("Writer")]
     public class WriterController : Controller
     {
         IUserService _userManager;
@@ -22,9 +23,9 @@ namespace CoreDemo.Controllers
 
         public IActionResult Index()
         {
-            return RedirectToAction("Index","Dashboard");
+            return RedirectToAction("Index", "Dashboard");
         }
-        
+
         [HttpGet]
         public IActionResult WriterEditProfile()
         {

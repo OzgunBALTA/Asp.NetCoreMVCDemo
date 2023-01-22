@@ -2,8 +2,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CoreDemo.Controllers
+namespace MvcWebUI.Areas.Writer.Controllers
 {
+    [Area("Writer")]
     public class MessageController : Controller
     {
         IMessageService _messageManager;

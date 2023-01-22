@@ -1,6 +1,6 @@
 ﻿using Business.Abstract;
 using Microsoft.AspNetCore.Mvc;
-using MvcWebUI.Models.Charts;
+using MvcWebUI.Areas.Admin.Models.Charts;
 
 namespace MvcWebUI.Areas.Admin.Controllers
 {

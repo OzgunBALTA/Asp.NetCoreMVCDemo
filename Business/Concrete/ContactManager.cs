@@ -23,14 +23,12 @@ namespace Business.Concrete
             _contactDal = contactDal;
         }
 
-        [SecuredOperation("Admin, Writer")]
         public IResult Add(Contact contact)
         {
             _contactDal.Add(contact);
             return new SuccessResult(Messages.ContactAdded);
         }
 
-        [SecuredOperation("Admin")]
         public IResult Delete(Contact contact)
         {
             _contactDal.Delete(contact);
@@ -47,7 +45,6 @@ namespace Business.Concrete
             return new SuccessDataResult<Contact>(_contactDal.Get(c => c.ContactID == id));
         }
 
-        [SecuredOperation("Admin, Writer")]
         public IResult Update(Contact contact)
         {
             _contactDal.Update(contact);

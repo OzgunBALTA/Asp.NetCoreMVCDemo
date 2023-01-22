@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "GetBlogListByWriter";
-    Layout = "~/Views/Shared/WriterLayout.cshtml";
+    Layout = "~/Areas/Writer/Views/Shared/WriterLayout.cshtml";
 }
 
 <h1>Yazarın Blogları</h1>
@@ -26,15 +26,15 @@
                 <td>@(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))</td>
                 <td>@item.Category.CategoryName</td>
                 <td>@(item.BlogStatus == true ? "Aktif" : "Pasif")</td>
-                <td><a href="/Blog/UpdateBlog/@item.BlogID" class="btn btn-warning">Düzenle</a></td>
-                <td><a href="/Blog/ChangeBlogStatus/@item.BlogID" onclick="return confirm('Blog Durumunu Değiştirmek İstediğinize Emin Misiniz?');" class="btn btn-danger">Durumu Değiştir</a></td>
+                <td><a href="/Writer/Writer/Blog/UpdateBlog/@item.BlogID" class="btn btn-warning">Düzenle</a></td>
+                <td><a href="/Writer/Writer/Blog/ChangeBlogStatus/@item.BlogID" onclick="return confirm('Blog Durumunu Değiştirmek İstediğinize Emin Misiniz?');" class="btn btn-danger">Durumu Değiştir</a></td>
             </tr>
         }
     </table>
-    <a href="/Blog/AddBlog" class="btn btn-primary">Yeni Blog Ekle</a>
+    <a href="/Writer/Blog/AddBlog" class="btn btn-primary">Yeni Blog Ekle</a>
 }
 else
 {
     <h3>Henüz Bir Blog Yazınız Yok Hemen Bir Blog Ekleyin...</h3>
-    <a href="/Blog/AddBlog" class="btn btn-primary">Yeni Blog Ekle</a>
+    <a href="/Writer/Blog/AddBlog" class="btn btn-primary">Yeni Blog Ekle</a>
 }

@@ -1,7 +1,7 @@
 ﻿using Business.Abstract;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CoreDemo.ViewComponents.Blog
+namespace MvcWebUI.Areas.Writer.ViewComponents.Blog
 {
     public class BlogListDashboard : ViewComponent
     {

@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "GetAllBySenderId";
-    Layout = "~/Views/Shared/WriterLayout.cshtml";
+    Layout = "~/Areas/Writer/Views/Shared/WriterLayout.cshtml";
 }
 
 <h1>Gönderilen Mesajlar</h1>
@@ -30,6 +30,6 @@
 else
 {
     <h6>Giden Mesajınız Yok</h6>
-    <a href="/Message/AddMessage" class="btn btn-primary">Mesaj Gönder</a>
+    <a href="/Writer/Message/AddMessage" class="btn btn-primary">Mesaj Gönder</a>
 }
 

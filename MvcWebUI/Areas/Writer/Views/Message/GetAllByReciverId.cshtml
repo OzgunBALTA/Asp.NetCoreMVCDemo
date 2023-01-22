@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "GetAllByReciverId";
-    Layout = "~/Views/Shared/WriterLayout.cshtml";
+    Layout = "~/Areas/Writer/Views/Shared/WriterLayout.cshtml";
 }
 
 <h1>Gelen Mesajlar</h1>
@@ -24,16 +24,16 @@
                 <td>@item.Subject</td>
                 <td>@(item.MessageSender.FirstName + " " + item.MessageSender.LastName)</td>
                 <td>@(((DateTime)item.MessageDate).ToString("dd-MMM-yyyy"))</td>
-                <td><a href="/Message/GetMessageById/@item.MessageID" class="btn btn-warning">Mesajı Aç</a></td>
+                <td><a href="/Writer/Message/GetMessageById/@item.MessageID" class="btn btn-warning">Mesajı Aç</a></td>
             </tr>
         }
     </table>
-    <a href="/Message/AddMessage" class="btn btn-primary">Mesaj Gönder</a>
+    <a href="/Writer/Message/AddMessage" class="btn btn-primary">Mesaj Gönder</a>
 }
 else
 {
     <h6>Gelen Mesajınız Yok</h6>
-    <a href="/Message/AddMessage" class="btn btn-primary">Mesaj Gönder</a>
+    <a href="/Writer/Message/AddMessage" class="btn btn-primary">Mesaj Gönder</a>
 }
 
 
