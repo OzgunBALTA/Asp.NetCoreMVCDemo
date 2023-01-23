@@ -31,6 +31,7 @@ namespace DataAccess.Concrete.Context
                 .OnDelete(DeleteBehavior.ClientSetNull);
             modelBuilder.Entity<Blog>().ToTable(tb => tb.HasTrigger("AddBlogInRatingTable"));
             modelBuilder.Entity<Comment>().ToTable(tb => tb.HasTrigger("AddScoreInComment"));
+            modelBuilder.Entity<User>().ToTable(tb => tb.HasTrigger("AddUserOperationClaimsTable"));
         }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Blog> Blogs { get; set; }
