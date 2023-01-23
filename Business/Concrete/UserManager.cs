@@ -66,5 +66,17 @@ namespace Business.Concrete
         {
             return _userDal.GetAll().TakeLast(1).ToList();
         }
+
+        public List<UserDetailsDto> GetUserListWithClaim()
+        {
+            var userList = _userDal.GetAll();
+            var userDetailsList = new List<UserDetailsDto>();
+            foreach (var item in userList)
+            {
+                var userDetails = _userDal.GetUserWithClaim(item);
+                userDetailsList.Add(userDetails[0]);
+            }
+            return userDetailsList;
+        }
     }
 }

@@ -3,7 +3,22 @@
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
 }
-<h1>Bloglar</h1>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Bloglar</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/Dashboard/Index">Ana Sayfa</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <strong>Bloglar</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
 <br />
 @if (Model.Count() > 0)
 {
@@ -25,8 +40,9 @@
                 <td>@item.Category.CategoryName</td>
                 <td>
                     <a href="/Admin/Blog/ChangeBlogStatus/@item.BlogID" class="btn btn-warning" id="ChangeBtn"
-                    onclick="return confirm('Blog durumunu değiştirmek istedğinize emin misiniz?');">
-                    @(item.BlogStatus == true ? "Aktif" : "Pasif")</a>
+               onclick="return confirm('Blog durumunu değiştirmek istedğinize emin misiniz?');">
+                        @(item.BlogStatus == true ? "Aktif" : "Pasif")
+                    </a>
                 </td>
                 <td><a href="#" class="btn btn-secondary">Düzenle</a></td>
             </tr>

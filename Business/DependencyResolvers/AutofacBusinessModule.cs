@@ -50,6 +50,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<MessageManager>().As<IMessageService>();
             builder.RegisterType<EfMessageDal>().As<IMessageDal>();
 
+            builder.RegisterType<OperationClaimManager>().As<IOperationClaimService>();
+            builder.RegisterType<EfOperationClaimDal>().As<IOperationClaimDal>();
+
             builder.RegisterType<ExporExcelHelper>().As<IExportHelper>();
 
             builder.RegisterType<AuthManager>().As<IAuthService>();
