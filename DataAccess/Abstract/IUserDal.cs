@@ -13,7 +13,7 @@ namespace DataAccess.Abstract
     public interface IUserDal : IEntityRepository<User>
     {
         List<OperationClaim> GetClaims(User user);
-        List<UserDetailsDto> UserDetails(User user);
+        List<UserDetailsDto> GetUserWithClaim(User user);
         UserForUpdateDto UserForUpdate(User user);
     }
 }

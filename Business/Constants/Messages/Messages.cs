@@ -35,6 +35,10 @@ namespace Business.Constants.Messages
         public static string MessageDeleted = "Mesaj Silindi";
         public static string MessagesLoaded = "Mesajlarınız Yüklendi";
 
+        public static string OperationClaimAdded = "Yeni Yetki Eklendi";
+        public static string OperationClaimDeleted = "Yetki Silindi";
+        public static string OperationClaimUpdated = "Yetki Güncellendi";
+
         public static string AuthorizationDenied = "Bu İşlem İçin Yetkiniz Yok";
         public static string UserRegistered = "Kayıt Başarılı";
         public static string UserNotFound = "Kullanıcı Bulunamadı";

@@ -29,7 +29,7 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
-        public List<UserDetailsDto> UserDetails(User user)
+        public List<UserDetailsDto> GetUserWithClaim(User user)
         {
             using (var context = new BlogSiteContext())
             {
