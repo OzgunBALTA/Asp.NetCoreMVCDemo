@@ -26,8 +26,8 @@
                 <td>@(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))</td>
                 <td>@item.Category.CategoryName</td>
                 <td>@(item.BlogStatus == true ? "Aktif" : "Pasif")</td>
-                <td><a href="/Writer/Writer/Blog/UpdateBlog/@item.BlogID" class="btn btn-warning">Düzenle</a></td>
-                <td><a href="/Writer/Writer/Blog/ChangeBlogStatus/@item.BlogID" onclick="return confirm('Blog Durumunu Değiştirmek İstediğinize Emin Misiniz?');" class="btn btn-danger">Durumu Değiştir</a></td>
+                <td><a href="/Writer/Blog/UpdateBlog/@item.BlogID" class="btn btn-warning">Düzenle</a></td>
+                <td><a href="/Writer/Blog/ChangeBlogStatus/@item.BlogID" onclick="return confirm('Blog Durumunu Değiştirmek İstediğinize Emin Misiniz?');" class="btn btn-danger">Durumu Değiştir</a></td>
             </tr>
         }
     </table>
