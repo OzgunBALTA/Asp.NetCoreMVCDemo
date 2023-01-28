@@ -15,8 +15,8 @@ namespace Business.Abstract
         IResult Delete(Category category);
         IResult Update(Category category);
         IResult ChangeCategoryStatus(Category category);
-        IDataResult<List<Category>> GetAll();
         IDataResult<Category> GetByID(int id);
+        IDataResult<List<Category>> GetAll();
         IDataResult<int> TotalCategoryCount();
     }
 }

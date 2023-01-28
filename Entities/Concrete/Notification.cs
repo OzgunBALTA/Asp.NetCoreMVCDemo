@@ -10,10 +10,10 @@ namespace Entities.Concrete
     public class Notification : IEntity
     {
         public int NotificationID { get; set; }
-        public string NotificationType { get; set; }
-        public string NotificationTypeSymbol { get; set; }
-        public string NotificationColor { get; set; }
-        public string NotificationDetails { get; set; }
+        public string NotificationType { get; set; } = string.Empty;
+        public string NotificationTypeSymbol { get; set; } = string.Empty;
+        public string NotificationColor { get; set; } = string.Empty;
+        public string NotificationDetails { get; set; } = string.Empty;
         public DateTime NotificationDate { get; set; }
         public bool NotificationStatus { get; set; }
     }

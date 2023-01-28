@@ -12,7 +12,7 @@ namespace Entities.Concrete
     {
         [Key]
         public int MailID { get; set; }
-        public string MailAddress { get; set; }
+        public string MailAddress { get; set; } = string.Empty;
         public bool MailStatus { get; set; }
     }
 }
